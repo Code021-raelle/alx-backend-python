@@ -6,7 +6,7 @@ This module provides a function to zoom into an array by a given factor
 from typing import List, Tuple
 
 
-def zoom_array(lst: Tuple[int, ...], factor: int = 2) -> List[int]:
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
     """
     Returns a list with elements of the tuple repeated by the factor
 
@@ -17,9 +17,9 @@ def zoom_array(lst: Tuple[int, ...], factor: int = 2) -> List[int]:
     Returns:
         List[int]: The zoomed-in list
     """
-    zoomed_in: List[int] = [
+    zoomed_in: List = [
         item for item in lst
-        for _ in range(factor)
+        for i in range(int(factor))
     ]
     return zoomed_in
 
