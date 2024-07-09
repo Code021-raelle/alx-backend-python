@@ -2,10 +2,11 @@
 """
 Module: 1-async_comprehension
 """
-
-import asyncio
 from typing import List
-from 0-async_generator import async_generator
+from importlib import import_module as using
+
+
+async_generator = using('0-async_generator').async_generator
 
 
 async def async_comprehension() -> List[float]:
