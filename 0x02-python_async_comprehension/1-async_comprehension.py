@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+Module: 1-async_comprehension
+"""
+
 import asyncio
 from typing import List
 from 0-async_generator import async_generator

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+Module: 0-async_generator
+"""
+
 import asyncio
 import random
 from typing import AsyncGenerator
