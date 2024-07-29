@@ -82,10 +82,12 @@ class TestGithubOrgClient(unittest.TestCase):
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        """ Test integration """
         cls.get_patcher = patch('requests.get')
         cls.mock_get = cls.get_patcher.start()
 
         def side_effect(url):
+            """ Side effects """
             if url == "https://api.github.com/orgs/google":
                 mock_response = Mock()
                 mock_response.json.return_value = cls.org_payload
@@ -99,13 +101,16 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        """ tear down class """
         cls.get_patcher.stop()
 
     def test_public_repos(self):
+        """ Test public repos """
         client = GithubOrgClient("google")
         self.assertEqual(client.public_repos(), self.expected_repos)
 
     def test_public_repos_with_license(self):
+        """ Test public repos with license """
         client = GithubOrgClient("google")
         self.assertEqual(client.public_repos("apache-2.0"), self.apache2_repos)
 
