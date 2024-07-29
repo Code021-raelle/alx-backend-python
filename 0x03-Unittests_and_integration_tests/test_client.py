@@ -80,6 +80,7 @@ class TestGithubOrgClient(unittest.TestCase):
      "apache2_repos": apache2_repos}
 ])
 class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """ Test GithubOrgClient class with integration tests """
     @classmethod
     def setUpClass(cls):
         """ Test integration """
