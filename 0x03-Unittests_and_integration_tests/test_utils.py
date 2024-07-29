@@ -20,3 +20,7 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError) as cm:
             access_nested_map(nested_map, path)
         self.assertEqual(str(cm.exception), repr(path[-1]))
+
+
+if __name__ == "__main__":
+    unittest.main()
