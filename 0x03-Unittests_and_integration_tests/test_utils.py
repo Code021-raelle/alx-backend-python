@@ -15,6 +15,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
     def test_access_nested_map(self, nested_map, path, expected):
+        """ test access nested map """
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand([
@@ -22,6 +23,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": 1}, ("a", "b"))
     ])
     def test_access_nested_map_exception(self, nested_map, path):
+        """ Test access nested map """
         with self.assertRaises(KeyError) as cm:
             access_nested_map(nested_map, path)
         self.assertEqual(str(cm.exception), repr(path[-1]))
@@ -50,6 +52,7 @@ class TestMemoize(unittest.TestCase):
     def test_memoize(self):
         """ Test the memoize decorator """
         class TestClass:
+
             def a_method(self):
                 return 42
 
@@ -62,7 +65,6 @@ class TestMemoize(unittest.TestCase):
             test_obj = TestClass()
             result1 = test_obj.a_property
             result2 = test_obj.a_property
-
             self.assertEqual(result1, 42)
             self.assertEqual(result2, 42)
             mock_method.assert_called_once()
